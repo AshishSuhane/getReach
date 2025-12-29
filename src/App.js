@@ -9,7 +9,7 @@ function App() {
   const [isAlert, setAlert] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const verifyUser = async () => {
-    const clientId = config.CLIENT_ID;
+    const clientId = config.ID;
     const redirectUri = config.REDIRECT_URL;
     const state = crypto.randomUUID();
 

@@ -15,8 +15,8 @@ app.get("/api/linkedin/callback", async (req, res) => {
         grant_type: "authorization_code",
         code,
         redirect_uri: config.REDIRECT_URL,
-        client_id: config.CLIENT_ID,
-        client_secret: config.CLIENT_SECRET,
+        client_id: config.ID,
+        client_secret: config.KEY,
       }),
       { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
     );
