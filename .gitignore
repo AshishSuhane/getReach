@@ -1,0 +1,88 @@
+# -------------------------
+# Dependencies
+# -------------------------
+node_modules/
+.pnp/
+.pnp.js
+
+# -------------------------
+# Build outputs
+# -------------------------
+dist/
+build/
+out/
+.next/
+coverage/
+package-lock.json
+
+
+# -------------------------
+# Environment variables
+# -------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# -------------------------
+# Logs
+# -------------------------
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# -------------------------
+# OS files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Editor & IDE
+# -------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -------------------------
+# Cache
+# -------------------------
+.cache/
+.eslintcache
+.turbo/
+.parcel-cache/
+
+# -------------------------
+# React Native
+# -------------------------
+android/.gradle/
+android/build/
+android/app/build/
+ios/build/
+ios/Pods/
+*.xcworkspace
+*.xcuserstate
+
+# -------------------------
+# Expo
+# -------------------------
+.expo/
+.expo-shared/
+
+# -------------------------
+# Testing
+# -------------------------
+coverage/
+*.lcov
+
+# -------------------------
+# Misc
+# -------------------------
+*.pem
+*.key
+*.crt
