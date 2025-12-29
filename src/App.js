@@ -3,14 +3,13 @@ import { useEffect, useState } from "react";
 import LinkedAccountsTable from "./components/linkedAccountTable";
 import AlertBox from "./components/alertBox";
 import ConnectSidebar from "./components/connectSidebar";
-import config from "./config.json"
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [isAlert, setAlert] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const verifyUser = async () => {
-    const clientId = config.ID;
-    const redirectUri = config.REDIRECT_URL;
+    const clientId = process.env.REACT_APP_CLIENT_ID;
+    const redirectUri = process.env.REACT_APP_REDIRECT_URL;
     const state = crypto.randomUUID();
 
     const authUrl =
