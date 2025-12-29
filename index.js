@@ -4,6 +4,7 @@ const path = require('path');
 const PORT = 3000;
 const axios = require("axios");
 const jwt = require("jsonwebtoken");
+const config = require("../getReach/src/config.json")
 app.get("/api/linkedin/callback", async (req, res) => {
   try {
     const { code } = req.query;
@@ -13,9 +14,9 @@ app.get("/api/linkedin/callback", async (req, res) => {
       new URLSearchParams({
         grant_type: "authorization_code",
         code,
-        redirect_uri: "http://localhost:3000/api/linkedin/callback",
-        client_id: "86e9zn2jvrwlag",
-        client_secret: "WPL_AP1.6d6Y9979FDXEl6We.q0UV4w==",
+        redirect_uri: config.REDIRECT_URL,
+        client_id: config.CLIENT_ID,
+        client_secret: config.CLIENT_SECRET,
       }),
       { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
     );

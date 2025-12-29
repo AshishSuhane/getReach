@@ -3,15 +3,14 @@ import { useEffect, useState } from "react";
 import LinkedAccountsTable from "./components/linkedAccountTable";
 import AlertBox from "./components/alertBox";
 import ConnectSidebar from "./components/connectSidebar";
-
+import config from "./config.json"
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [isAlert, setAlert] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const verifyUser = async () => {
-    const clientId = "86e9zn2jvrwlag";
-    const redirectUri = "http://localhost:3000/api/linkedin/callback";
-    console.log(clientId)
+    const clientId = config.CLIENT_ID;
+    const redirectUri = config.REDIRECT_URL;
     const state = crypto.randomUUID();
 
     const authUrl =
