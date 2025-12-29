@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+require("dotenv").config();
 const path = require('path');
 const PORT = 3000;
 const axios = require("axios");
@@ -16,7 +17,7 @@ app.get("/api/linkedin/callback", async (req, res) => {
         code,
         redirect_uri: config.REDIRECT_URL,
         client_id: config.ID,
-        client_secret: config.KEY,
+        client_secret: process.env.CLIENT_SECRET,
       }),
       { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
     );
