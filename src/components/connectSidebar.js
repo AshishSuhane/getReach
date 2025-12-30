@@ -15,7 +15,7 @@ function ConnectSidebar({ onClose, onVerify }) {
           How do you want to connect your LinkedIn account?
         </p>
 
-        <button className="sidebar-option sidebar-option--primary">
+        <button onClick={()=>onVerify('infinite')} className="sidebar-option sidebar-option--primary">
           <div className="sidebar-option-icon">∞</div>
           <div className="sidebar-option-content">
             <div className="sidebar-option-title-row">
@@ -32,7 +32,7 @@ function ConnectSidebar({ onClose, onVerify }) {
           </div>
         </button>
 
-        <button onClick={onVerify} className="sidebar-option">
+        <button onClick={()=>onVerify('cred')} className="sidebar-option">
           <div className="sidebar-option-icon">in</div>
           <div className="sidebar-option-content">
             <span className="sidebar-option-title">Credentials Login</span>

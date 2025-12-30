@@ -7,10 +7,10 @@ function App() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [isAlert, setAlert] = useState(null);
   const [accounts, setAccounts] = useState([]);
-  const verifyUser = async () => {
+  const verifyUser = async (method) => {
     const clientId = process.env.REACT_APP_CLIENT_ID;
     const redirectUri = process.env.REACT_APP_REDIRECT_URL;
-    const state = crypto.randomUUID();
+    const state = method;
 
     const authUrl =
       "https://www.linkedin.com/oauth/v2/authorization" +
@@ -34,21 +34,23 @@ function App() {
         const existing =
           JSON.parse(localStorage.getItem("linkedAccounts")) || [];
 
-        const alreadyExists = existing.some(
+        const index = existing.findIndex(
           (acc) => acc.linkedinId === account.linkedinId
         );
-
-        if (!alreadyExists) {
+        if(index !== -1){
+          existing?.splice(index,1,account)
+        }else{
+          existing?.push(account)
+        }
           localStorage.setItem(
             "linkedAccounts",
-            JSON.stringify([...existing, account])
+            JSON.stringify(existing)
           );
           sessionStorage.setItem(
             "linkedAccount",
-            JSON.stringify([...existing, account])
+            JSON.stringify(existing)
           )
-          setAccounts((prev)=>[...prev, account])
-        }
+          setAccounts(existing)
       }
       window.history.replaceState({}, "", "/heyreach?status=success");
     }
@@ -116,11 +118,11 @@ function App() {
       {showSidebar && (
         <ConnectSidebar
           onClose={() => setShowSidebar(false)}
-          onVerify={verifyUser}
+          onVerify={(method)=>verifyUser(method)}
         />
       )}
       <div className="table-section">
-        <LinkedAccountsTable accounts={accounts} />
+        <LinkedAccountsTable accounts={accounts} setAlert={(alert)=>setAlert(alert)}/>
       </div>
     </div>
   );}

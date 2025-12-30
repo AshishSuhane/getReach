@@ -49,6 +49,24 @@ body {
   max-width: 1400px;
   margin: 0 auto;
 }
+.validate-btn {
+  padding: 6px 12px;
+  background-color: #0A66C2;
+  color: #fff;
+  border: 1px solid #0A66C2;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.validate-btn:hover {
+  background-color: #004182;
+}
+
+.validate-btn:active {
+  transform: scale(0.97);
+}
 
 /* Header layout */
 .header {
